@@ -1,0 +1,13 @@
+*.swp
+*.pyc
+*.pem
+old*
+data/*
+logs/*
+*debug*
+*.state
+*.sh
+!fetch_babi_data.sh
+!fetch_glove_data.sh
+*deploy*
+*.png
