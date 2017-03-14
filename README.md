@@ -1,6 +1,8 @@
-# Dynamic memory networks in Theano
-The aim of this repository is to implement Dynamic memory networks 
-as described in the [paper by Kumar et al.](http://arxiv.org/abs/1506.07285)
+# Dynamic memory tensor networks in Theano
+The project is fored from https://github.com/YerevaNN/Dynamic-memory-networks-in-Theano
+The aim of this repository is to implement Dynamic tensor memory networks, besides the Dynamic memory networks covered in the parent.
+DMTN as described in the https://arxiv.org/abs/1703.03939  
+DMN as described in the [paper by Kumar et al.](http://arxiv.org/abs/1506.07285)
 and to experiment with its various extensions.
 
 **Pretrained models on bAbI tasks can be tested [online](http://yerevann.com/dmn-ui/).**
@@ -16,6 +18,7 @@ We will cover the process in a series of blog posts.
 | `main.py` | the main entry point to train and test available network architectures on bAbI-like tasks |
 | `dmn_basic.py` | our baseline implementation. It is as close to the original as we could understand the paper, except the number of steps in the main memory GRU is fixed. Attention module uses `T.abs_` function as a distance between two vectors which causes gradients to become `NaN` randomly.  The results reported in [this blog post](http://yerevann.github.io/2016/02/05/implementing-dynamic-memory-networks/) are based on this network |
 | `dmn_smooth.py` | uses the square of the Euclidean distance instead of `abs` in the attention module. Training is very stable. Performance on bAbI is slightly better |
+| `dmtn.py` | DMTN implementaion |
 | `dmn_batch.py` | `dmn_smooth` with minibatch training support. The batch size cannot be set to `1` because of the [Theano bug](https://github.com/Theano/Theano/issues/1772) | 
 | `dmn_qa_draft.py` | draft version of a DMN designed for answering multiple choice questions | 
 | `utils.py` | tools for working with bAbI tasks and GloVe vectors |
@@ -39,12 +42,12 @@ The following bash scripts will download bAbI tasks and GloVe vectors.
 
 Use `main.py` to train a network:
 
-    python main.py --network dmn_basic --babi_id 1
+    python main.py --network dmtn --babi_id 1
 
 The states of the network will be saved in `states/` folder. 
 There is one pretrained state on the 1st bAbI task. It should give 100% accuracy on the test set:
 
-    python main.py --network dmn_basic --mode test --babi_id 1 --load_state states/dmn_basic.mh5.n40.babi1.epoch4.test0.00033.state
+    python main.py --network dmtn --mode test --babi_id 1 --load_state states/dmn_basic.mh5.n40.babi1.epoch4.test0.00033.state
 
 ### Server
 
