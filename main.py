@@ -11,7 +11,7 @@ import nn_utils
 print "==> parsing input arguments"
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--network', type=str, default="dmn_batch", help='network type: dmn_basic, dmn_smooth, or dmn_batch')
+parser.add_argument('--network', type=str, default="dmn_batch", help='network type: dmtn, dmn_basic, dmn_smooth, or dmn_batch')
 parser.add_argument('--word_vector_size', type=int, default=50, help='embeding size (50, 100, 200, 300 only)')
 parser.add_argument('--dim', type=int, default=40, help='number of hidden units in input module GRU')
 parser.add_argument('--epochs', type=int, default=500, help='number of epochs')
@@ -78,6 +78,13 @@ elif args.network == 'dmn_smooth':
         args.batch_size = 1
     dmn = dmn_smooth.DMN_smooth(**args_dict)
 
+elif args.network == 'dmtn':
+    import dmtn
+    if (args.batch_size != 1):
+        print "==> no minibatch training, argument batch_size is useless"
+        args.batch_size = 1
+    dmn = dmtn.DMTN(**args_dict)
+    
 elif args.network == 'dmn_qa':
     import dmn_qa_draft
     if (args.batch_size != 1):

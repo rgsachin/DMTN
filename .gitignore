@@ -11,3 +11,7 @@ logs/*
 !fetch_glove_data.sh
 *deploy*
 *.png
+/.project
+/.pydevproject
+/glove.6B.zip
+/tasks_1-20_v1-2.tar.gz

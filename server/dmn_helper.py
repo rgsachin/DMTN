@@ -53,6 +53,12 @@ def load_network(code_path, babi_train_raw, babi_test_raw, word2vec, word_vector
         import dmn_qa_draft
         dmn = dmn_qa_draft.DMN_qa(**args_dict)
         sys.path.insert(0, current_dir)
+        
+    elif args_dict['network'] == 'dmtn':
+        sys.path.insert(0, code_path)
+        import dmtn
+        dmn = dmtn.DMTN(**args_dict)
+        sys.path.insert(0, current_dir)
 
     else:
         raise Exception("No such network known: " + args_dict['network'])
