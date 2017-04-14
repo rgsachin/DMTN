@@ -230,7 +230,7 @@ class DMTN:
         
         cmq = T.concatenate([ct, mem, q_q]);
         
-        l_1 = T.dot(T.dot(self.W_111, ct),mem) + T.dot(T.dot(self.W_112, q_q),mem) + T.dot(T.dot(self.W_113, ct),q_q) + T.dot(self.W_12, cmq) + self.b_1.dimshuffle(0, 'x')
+        l_1 = T.dot(T.dot(self.W_111, ct),mem) + T.dot(T.dot(self.W_112, q_q),mem) + T.dot(T.dot(self.W_113, ct),q_q) + T.dot(self.W_12, cmq) + self.b_1
         #l_1 = T.dot(self.W_1, z) + self.b_1
         l_1 = T.tanh(l_1)
         l_2 = T.dot(self.W_2, l_1) + self.b_2
