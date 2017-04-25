@@ -1,9 +1,32 @@
-# Dynamic memory tensor networks in Theano
-The project is fored from https://github.com/YerevaNN/Dynamic-memory-networks-in-Theano
-The aim of this repository is to implement Dynamic tensor memory networks, besides the Dynamic memory networks covered in the parent.
-DMTN as described in the https://arxiv.org/abs/1703.03939  
+# Dynamic Memory Tensor Networks in Theano
+The project is forked from https://github.com/YerevaNN/Dynamic-memory-networks-in-Theano
+The aim of this repository is to implement **D**ynamic **M**emory **T**ensor **N**etworks, besides the Dynamic memory networks covered in the parent.
+
+DMTN as described in  https://arxiv.org/abs/1703.03939
+*Ramachandran, Govardana Sachithanandam, and Ajay Sohmshetty. "Ask Me Even More: Dynamic Memory Tensor Networks (Extended Model)." arXiv preprint arXiv:1703.03939 (2017).* 
+
+Orginally published as http://cs224d.stanford.edu/reports/SohmshettyRamachandran.pdf
+*Sohmshetty, Ajay, and Govardana Sachithanandam Ramachandran. "Ask Me Even More: Dynamic Memory Tensor Networks (Extended Model)." http://cs224d.stanford.edu/reports_2016.html (June 2016)*
+
+**Abstract**:
+We examine Memory Networks for the task of question answering (QA), under common real world scenario where training examples are scarce and under weakly supervised scenario, that is only extrinsic labels are available for training. We propose extensions for the Dynamic Memory Network (DMN), specifically within the attention mechanism, we call the resulting Neural Architecture as Dynamic Memory Tensor Network (DMTN). Ultimately, we see that our proposed extensions results in over 80% improvement in the number of task passed against the baselined standard DMN and 20% more task passed compared to state-of-the-art End-to-End Memory Network for Facebook's single task weakly trained 1K bAbi dataset.
+
+![dmtncomparison](https://cloud.githubusercontent.com/assets/19319509/25372789/ac4bd34a-294b-11e7-8455-3ebd26d53c42.jpg)
+
+_[Table:1]Accuracies across all tasks for MemN2N, DMN, and DMTN. Here DMN baselines
+serves as the baseline for DTMN to measure the lift with the proposed changes. DMN best* is the
+best document performance of DMN with optimal hyperparameter tuning on bAbi weakly trained
+dataset- http://yerevann.github.io/2016/02/05/implementing-dynamic-memory-networks_
+
+The above results are obtained by using following Hyper-parameter was used between DMN baseline and DMTN. Please note that due to lack of time & resource Hyper-parameter tunning was not done, Hence we recommend you to play with Hyper-parameter for even better results
+
+![hyper_parameter](https://cloud.githubusercontent.com/assets/19319509/25373388/54ef9f02-294e-11e7-8ed4-9acbdbde9c40.jpg)
+
+_[Table:2]Hyperparameters used for DMN baseline and DMTN._
+
 DMN as described in the [paper by Kumar et al.](http://arxiv.org/abs/1506.07285)
 and to experiment with its various extensions.
+
 
 **Pretrained models on bAbI tasks can be tested [online](http://yerevann.com/dmn-ui/).**
 
